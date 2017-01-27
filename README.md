@@ -20,7 +20,7 @@ Download links can be found in the "Releases" section: https://github.com/Living
 Alternatively, you can clone this repository and build it yourself using Visual Studio. Instructions can be found towards the end of this document.
 
 ## Official repository
-The official repository of this utility is: https://github.com/LivingSkySchoolDivision
+The official repository of this utility is: https://github.com/LivingSkySchoolDivision/StudentPasswordUtility
 
 # How we use this at our organization
 We are a school district, with approximately 30 schools, each with a Windows file server on-site. In our Active Directory structure, each school has it's own OU, and then we have "Staff" and "Student" OUs under that. The OU that the utility uses is configured to point at the given school's "Students" OU. Staff see a list of all students at their school, and can search them by name or student ID (which we store in the employeeID field in Active Directory).
