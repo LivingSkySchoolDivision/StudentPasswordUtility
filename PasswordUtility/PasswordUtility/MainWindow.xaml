@@ -1,0 +1,57 @@
+﻿<Window x:Class="PasswordUtility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordUtility"
+        mc:Ignorable="d"
+        Title="Password Reset Tool"  Height="655" Width="616" WindowStyle="ToolWindow" Loaded="Window_Loaded"  ResizeMode="CanMinimize">
+    <Grid Margin="0,0,0,0" Height="627" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="201*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*" />
+            <ColumnDefinition Width="34*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Margin="12,35,16,0" x:Name="lstAccountNames" SelectionChanged="listAccountNames_SelectionChanged" Height="440" VerticalAlignment="Top" Grid.Row="1" />
+        <Grid Margin="2,0,0,0" x:Name="Grid1" Height="593" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="328">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="499*" />
+                <RowDefinition Height="11*" />
+            </Grid.RowDefinitions>
+            <Label Content="First Name:" Height="28" HorizontalAlignment="Left" Margin="7,33,0,0" x:Name="Label1" VerticalAlignment="Top" Width="71" IsEnabled="False" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="6,61,0,0" x:Name="Label2" VerticalAlignment="Top" Width="72" Content="Last Name:" IsEnabled="False" />
+            <Label Content="ID Number:" Height="23" HorizontalAlignment="Left" Margin="7,7,0,0" x:Name="Label3" VerticalAlignment="Top" Width="84" IsEnabled="False" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="119,35,0,0" x:Name="txtFirstName" VerticalAlignment="Top" Width="183" IsEnabled="False" IsReadOnly="True" BorderThickness="1" />
+            <TextBox Height="23" Margin="119,63,0,0" x:Name="txtLastName" VerticalAlignment="Top" IsEnabled="False" IsReadOnly="True" BorderThickness="1" HorizontalAlignment="Left" Width="183" />
+            <TextBox Height="23" Margin="119,7,0,0" x:Name="txtIDNumber" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="1" HorizontalAlignment="Left" Width="183" IsEnabled="False" />
+            <TextBox Height="84" HorizontalAlignment="Left" Margin="11,290,0,0" x:Name="txtComment" VerticalAlignment="Top" Width="291" IsReadOnly="False" BorderThickness="1" AcceptsReturn="True" />
+            <Label Content="Comments:" Height="28" HorizontalAlignment="Left" Margin="10,262,0,0" x:Name="label8" VerticalAlignment="Top" Width="70" />
+            <Button Content="Update Comments" Height="23" HorizontalAlignment="Left" Margin="171,379,0,0" x:Name="btnUpdateDescription" VerticalAlignment="Top" Width="131" Click="btnUpdateDescription_Click" IsEnabled="False" />
+            <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="6,89,0,0" x:Name="label13" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="119,91,0,0" x:Name="txtUserName" VerticalAlignment="Top" Width="183" IsReadOnly="True" BorderThickness="1" IsEnabled="False" />
+            <GroupBox Header="Change Password" HorizontalAlignment="Left" Margin="11,405,0,0" VerticalAlignment="Top" Height="149" Width="291">
+                <Grid HorizontalAlignment="Left" Height="129" VerticalAlignment="Top" Width="281" Margin="0,10,-2,-12">
+                    <TextBox Height="23" Margin="10,10,0,0" x:Name="txtPassword" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Left" Width="261" />
+                    <Button Content="Change Password" Height="23" Margin="171,87,0,0" x:Name="btnChangePassword" VerticalAlignment="Top" IsEnabled="False" Click="btnChangePassword_Click" HorizontalAlignment="Left" Width="100" />
+                    <CheckBox Content="Prompt to change on next login" Height="16" Margin="10,66,0,0" x:Name="chkPromptToChange" VerticalAlignment="Top" IsEnabled="False" IsChecked="True" HorizontalAlignment="Left" Width="261" />
+                    <Label x:Name="lblBlankPassword" Content="If left blank, password will be:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="261"/>
+                </Grid>
+
+            </GroupBox>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="10,234,0,0" x:Name="txtSecurity" VerticalAlignment="Top" Width="152" IsReadOnly="True" BorderThickness="1" TextAlignment="Center" IsEnabled="False" />
+            <Button Content="Enable" Height="23" HorizontalAlignment="Left" Margin="167,234,0,0" x:Name="btnEnable" VerticalAlignment="Top" Width="65" IsEnabled="False" Click="btnEnable_Click" />
+            <Button Content="Disable" Height="23" HorizontalAlignment="Left" Margin="237,234,0,0" x:Name="btnDisable" VerticalAlignment="Top" Width="65" IsEnabled="False" Click="btnDisable_Click" />
+            <Label Content="Last Logon:" Height="28" HorizontalAlignment="Left" Margin="6,143,0,0" x:Name="label13_Copy" VerticalAlignment="Top" Width="99" IsEnabled="False" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="119,145,0,0" x:Name="txtLastLogon" VerticalAlignment="Top" Width="183" IsReadOnly="True" BorderThickness="1" IsEnabled="False" />
+            <Label Content="Last pwd change:" Height="28" HorizontalAlignment="Left" Margin="6,171,0,0" x:Name="label13_Copy1" VerticalAlignment="Top" Width="108" IsEnabled="False" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="119,173,0,0" x:Name="txtPwdLastSet" VerticalAlignment="Top" Width="183" IsReadOnly="True" BorderThickness="1" IsEnabled="False" />
+        </Grid>
+        <ProgressBar Height="9" HorizontalAlignment="Left" Margin="12,505,0,0" x:Name="progressBar" VerticalAlignment="Top" Width="242" IsIndeterminate="True" IsEnabled="False" Visibility="Visible" Grid.Row="1" />
+        <Button Content="Refresh user list" Height="22" HorizontalAlignment="Left" Margin="12,480,0,0" x:Name="btnRefreshAccountsList" VerticalAlignment="Top" Width="241" Click="btnRefreshAccountsList_Click" Grid.Row="1" IsEnabled="False" />
+        <TextBox x:Name="txtSearchBox" HorizontalAlignment="Left" Height="23" Margin="12,7,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="241" GotFocus="txtSearchBox_GotFocus" TextChanged="txtSearchBox_TextChanged" Grid.Row="1" IsEnabled="False"/>
+        <Label x:Name="lblStudentTotal" Content="Total accounts listed:" HorizontalAlignment="Left" Margin="12,519,0,0" Grid.Row="1" VerticalAlignment="Top" Width="241" FontSize="10"/>
+    </Grid>
+</Window>

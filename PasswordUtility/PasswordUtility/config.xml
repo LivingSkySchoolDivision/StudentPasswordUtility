@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <ActiveDirectoryUsername></ActiveDirectoryUsername>
+  <ActiveDirectoryPassword></ActiveDirectoryPassword>
+  <UseImpersonation></UseImpersonation>
+  <UseLDAPS></UseLDAPS>
+  <DefaultNewPassword></DefaultNewPassword>
+  <OU></OU>
+</Settings>
