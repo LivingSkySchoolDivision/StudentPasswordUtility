@@ -250,6 +250,7 @@ namespace PasswordUtility
                 try
                 {
                     adRepo.ChangeUserPassword(selectedUser, txtPassword.Text.Trim(), chkPromptToChange.IsChecked);
+                    MessageBox.Show("Password for " + selectedUser.sAMAccountName + " changed!");
                 }
                 catch (Exception ex)
                 {
